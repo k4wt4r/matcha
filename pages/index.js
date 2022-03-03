@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import Signin from '../components/signin.jsx'
 import Signup from '../components/Signup.jsx'
 import UserProfile from '../components/UserProfile'
+import NabBar from '../components/NavBar/NabBar'
 
 export default function Home() {
   return (
@@ -15,7 +16,8 @@ export default function Home() {
 
       {/* <Signin /> */}
     {/* <Signup /> */}
-    <UserProfile />
+    {/* <UserProfile /> */}
+    <NabBar />
 
     </div>
   )
