@@ -6,7 +6,8 @@ function NavBarElement({
     activeElement,
     setActiveElement,
     index,
-}) {
+})
+ {
   return (
           <a
           className={`block mt-4 lg:inline-block lg:mt-0 mr-4 cursor-pointer ${activeElement ? "text-pink-600" : "text-black"}`}
