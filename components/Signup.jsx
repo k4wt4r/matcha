@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import dating from "../../public/images/dating.png";
+import dating from "../public/images/dating.png";
 import Link from "next/link";
 function Signup() {
     return (

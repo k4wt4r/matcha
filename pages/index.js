@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Signin from './components/signin'
-import Signup from './components/signup'
+import Signin from '../components/signin.jsx'
+import Signup from '../components/Signup.jsx'
+import UserProfile from '../components/UserProfile'
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
       </Head>
 
       {/* <Signin /> */}
-      <Signup />
+    {/* <Signup /> */}
+    <UserProfile />
 
     </div>
   )

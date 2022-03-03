@@ -1,11 +1,24 @@
 import React from "react";
 import Image from "next/image";
-import dating from "../../public/images/dating.png";
+import dating from "../public/images/dating.png";
 import Link from "next/link";
+import {useFormik} from 'formik'
+
 function Signin() {
+  const formik = useFormik({
+    initialValues:{
+      email:'',
+      password:'',
+    },
+    onSubmit: values =>{
+      alert(JSON.stringify(values, null, 2));
+    }
+  })
   return (
     <div className="bg-gradient-to-tr from-blue-600 via-purple-600 to-orange-200 w-full min-h-screen flex justify-center items-center ">
-      <form className="w-full md:w-1/3 lg:w-1/4 rounded-br-lg items-center justify-center px-4 lg:px-11 py-16  bg-gray-400 bg-opacity-50 rounded-2xl shadow-5xl relative z-2 border border-opacity-40 border-1 backdrop-filter backdrop-blur-sm mx-1.3">
+      <form
+        onSubmit={formik.handleSubmit}
+      className="w-full md:w-1/3 lg:w-1/4 rounded-br-lg items-center justify-center px-4 lg:px-11 py-16  bg-gray-400 bg-opacity-50 rounded-2xl shadow-5xl relative z-2 border border-opacity-40 border-1 backdrop-filter backdrop-blur-sm mx-1.3">
         <Image
           className="flex justify-center items-center"
           src={dating}
@@ -22,6 +35,8 @@ function Signin() {
             type="email"
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-6 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             placeholder="Enter your Email"
+            onChange={formik.handleChange}
+            value={formik.values.email}
           />
         </div>
         <div className="mb-6 mt-7">
@@ -33,11 +48,14 @@ function Signin() {
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-6 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             type="password"
             placeholder="Enter your password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+
           />
           <div className="flex justify-between  text-purple-800 mt-6 mb-4 ">
             <button
               type="submit"
-              className="text-white bg-pink-500 shadow-md shadow-pink-400 hover:bg-gradient-to-l focus:ring-4 focus:ring-purple-300 dark:focus:ring-purple-800 rounded-lg text-sm px-6 py-2.5 text-center animate-pusle"
+              className="text-white bg-pink-500 shadow-md shadow-pink-400 hover:bg-gradient-to-l  focus:bg-purple-300  rounded-lg text-sm px-6 py-2.5 text-center animate-pusle"
             >
               Sign In
             </button>
