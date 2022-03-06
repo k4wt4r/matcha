@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Signin from '../components/signin.jsx'
-import Signup from '../components/Signup.jsx'
-import UserProfile from '../components/UserProfile'
-import NabBar from '../components/NavBar/NabBar'
+import signin from './signin'
+import signup from './signup.jsx'
+import FindPartner from '../components/homePage/FindPartner'
+import UserProfile from './profile'
+import profile from './profile'
 
 export default function Home() {
   return (
@@ -14,10 +15,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <Signin /> */}
-    {/* <Signup /> */}
-    {/* <UserProfile /> */}
-    <NabBar />
+      {/* <signin /> */}
+      {/* <signup /> */}
+      {/* <UserProfile /> */}
+      {/* <FindPartner /> */}
+      <profile />
 
     </div>
   )

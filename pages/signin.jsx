@@ -4,6 +4,18 @@ import dating from "../public/images/dating.png";
 import Link from "next/link";
 import {useFormik} from 'formik'
 
+import * as Yup from 'yup'
+
+const SignInSchema = Yup.object().shape({
+    email: Yup.string()
+    .min(2, "Too short")
+    .max(30, "too long")
+    .required("email is required"),
+    password: Yup.string()
+    .required("password is required - should be 8 characteres minimun")
+})
+
+
 function Signin() {
   const formik = useFormik({
     initialValues:{
@@ -17,8 +29,9 @@ function Signin() {
   return (
     <div className="bg-gradient-to-tr from-blue-600 via-purple-600 to-orange-200 w-full min-h-screen flex justify-center items-center ">
       <form
+      
         onSubmit={formik.handleSubmit}
-      className="w-full md:w-1/3 lg:w-1/4 rounded-br-lg items-center justify-center px-4 lg:px-11 py-16  bg-gray-400 bg-opacity-50 rounded-2xl shadow-5xl relative z-2 border border-opacity-40 border-1 backdrop-filter backdrop-blur-sm mx-1.3">
+      className="w-full md:w-1/2 lg:w-1/4 rounded-br-lg items-center justify-center px-4 lg:px-11 py-16  bg-gray-400 bg-opacity-50 rounded-2xl shadow-5xl relative z-2 border border-opacity-40 border-1 backdrop-filter backdrop-blur-sm mx-1.3 ">
         <Image
           className="flex justify-center items-center"
           src={dating}
@@ -55,7 +68,7 @@ function Signin() {
           <div className="flex justify-between  text-purple-800 mt-6 mb-4 ">
             <button
               type="submit"
-              className="text-white bg-pink-500 shadow-md shadow-pink-400 hover:bg-gradient-to-l  focus:bg-purple-300  rounded-lg text-sm px-6 py-2.5 text-center animate-pusle"
+              className=" transition duration-0 hover:duration-150 text-white bg-pink-500 rounded-lg text-sm px-6 py-2.5 text-center animate-pusle"
             >
               Sign In
             </button>

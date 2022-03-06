@@ -2,10 +2,34 @@ import React from "react";
 import Image from "next/image";
 import dating from "../public/images/dating.png";
 import Link from "next/link";
+import * as Yup from "yup";
+
+
+const SignUpSchema = Yup.object().shape(
+    {
+        firstname: Yup.string()
+        .min(5,'Should be 5 character long')
+        .max(15,'should not exceed 15 characters')
+        .required('Required'),
+
+        lastname: Yup.string()
+        .min(5,'Should be 5 character long')
+        .max(15,'should not exceed 15 characters')
+        .required('Required'),
+
+        email:Yup.string()
+        .email('invalid email address')
+        .required('Required')
+    }
+);
+
+
 function Signup() {
     return (
         <div className="bg-gradient-to-tr from-purple-800 via-purple-600 to-pink-400 w-full min-h-screen flex justify-center items-center ">
-            <form className="w-full md:w-2/3 lg:w-1/4 rounded-br-lg items-center justify-center px-4 lg:px-11 py-16  bg-gray-400 bg-opacity-50 rounded-2xl shadow-5xl relative z-2 border border-opacity-40 border-1 backdrop-filter backdrop-blur-sm mx-1.3">
+            <form
+            className="w-full md:w-2/3 lg:w-1/4 rounded-br-lg items-center justify-center px-4 lg:px-11 py-16  bg-gray-400 bg-opacity-50 rounded-2xl shadow-5xl relative z-2 border border-opacity-40 border-1 backdrop-filter backdrop-blur-sm mx-1.3">
+               <h2 className="text-white text-3xl">Find Your Crush</h2>
                 <Image
                     className="mb-40"
                     src={dating}

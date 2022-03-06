@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import backgrounduserprofile from '../public/images/backgrounduserprofile.jpg'
-import pDp from '../public/images/pDp.jpg'
+import backgrounduserprofile from '../../public/images/backgrounduserprofile.jpg'
+import pDp from '../../public/images/pDp.jpg'
 
 function UserProfile() {
   return (
